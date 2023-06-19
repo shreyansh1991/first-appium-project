@@ -34,20 +34,32 @@ public class PressKey {
         });
         System.out.println("is keyboard shown ?" + ((AndroidDriver) driver).isKeyboardShown());
 
+//        driver.pressKeyCode(AndroidKeyCode.KEYCODE_5);
+
         ((AndroidDriver) driver).pressKey(new KeyEvent().withKey(AndroidKey.S));
         ((AndroidDriver) driver).pressKey(new KeyEvent().withKey(AndroidKey.H));
-        ((AndroidDriver) driver).pressKey(new KeyEvent().withKey(AndroidKey.R));
-        ((AndroidDriver) driver).pressKey(new KeyEvent().withKey(AndroidKey.E));
-        ((AndroidDriver) driver).pressKey(new KeyEvent().withKey(AndroidKey.Y));
-        ((AndroidDriver) driver).pressKey(new KeyEvent().withKey(AndroidKey.A));
-        ((AndroidDriver) driver).pressKey(new KeyEvent().withKey(AndroidKey.N));
-        ((AndroidDriver) driver).pressKey(new KeyEvent().withKey(AndroidKey.S));
-        ((AndroidDriver) driver).pressKey(new KeyEvent().withKey(AndroidKey.H));
-        ((AndroidDriver) driver).pressKey(new KeyEvent().withKey(AndroidKey.HOME)); // this will put the application to backgorund.
+        Thread.sleep(1000);
+        ((AndroidDriver) driver).pressKey(new KeyEvent().withKey(AndroidKey.DIGIT_0)); // working
+        ((AndroidDriver) driver).pressKey(new KeyEvent().withKey(AndroidKey.DIGIT_1));
 
-        ((AndroidDriver) driver).pressKey(new KeyEvent().withKey(AndroidKey.CONTACTS));
-
-        ((AndroidDriver) driver).hideKeyboard();
+//        ((AndroidDriver) driver).pressKey(new KeyEvent().withKey(AndroidKey.R));
+//        ((AndroidDriver) driver).pressKey(new KeyEvent().withKey(AndroidKey.E));
+//        ((AndroidDriver) driver).pressKey(new KeyEvent().withKey(AndroidKey.Y));
+//        ((AndroidDriver) driver).pressKey(new KeyEvent().withKey(AndroidKey.A));
+//        ((AndroidDriver) driver).pressKey(new KeyEvent().withKey(AndroidKey.N));
+//        ((AndroidDriver) driver).pressKey(new KeyEvent().withKey(AndroidKey.S));
+//        ((AndroidDriver) driver).pressKey(new KeyEvent().withKey(AndroidKey.H));
+//        ((AndroidDriver) driver).pressKey(new KeyEvent().withKey(AndroidKey.HOME)); // this will put the application to backgorund.
+//
+//        ((AndroidDriver) driver).pressKey(new KeyEvent().withKey(AndroidKey.CONTACTS));
+//
+//        ((AndroidDriver) driver).hideKeyboard();
+//
+//        ((AndroidDriver) driver).runAppInBackground(Duration.ofSeconds(100));
+//
+//        ((AndroidDriver) driver).rotate(ScreenOrientation.LANDSCAPE);
+//
+//        ((AndroidDriver) driver).rotate(ScreenOrientation.PORTRAIT);
 
     }
 }
