@@ -16,6 +16,7 @@ import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
+import java.util.Set;
 
 public class BrowserBaseTest {
     public AndroidDriver driver;
@@ -36,7 +37,7 @@ public class BrowserBaseTest {
         caps.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
         caps.setCapability(MobileCapabilityType.DEVICE_NAME, "pixel_5");
         caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
-        caps.setCapability(MobileCapabilityType.UDID, "your_uuid");
+        caps.setCapability(MobileCapabilityType.UDID, "KRZDUOJV757DU84H");
         caps.setCapability("browserName","chrome");
         URL url = null;
         try {
@@ -49,6 +50,9 @@ public class BrowserBaseTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get("https://tesla.com/");
         System.out.println("driver.getTitle() "+driver.getTitle());
+        Set<String> contextHandles = ((AndroidDriver) driver).getContextHandles();
+//        System.out.println(contextHandles); [NATIVE_APP, CHROMIUM]
+//        System.out.println(((AndroidDriver) driver).getContext()); CHROMIUM
 
 
     }
