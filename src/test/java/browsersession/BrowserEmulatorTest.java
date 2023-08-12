@@ -24,20 +24,21 @@ public class BrowserEmulatorTest {
                 .withAppiumJS(new File("C:\\Users\\win\\AppData\\Roaming\\npm\\node_modules\\appium\\build\\lib\\main.js"))
                 .usingPort(4723)
                 .withArgument(GeneralServerFlag.SESSION_OVERRIDE)
+                .withArgument(GeneralServerFlag.ALLOW_INSECURE,"chromedriver_autodownload")
                 .withTimeout(Duration.ofSeconds(90))
                 .withLogFile(new File("ServerLogs/server.log")));
     }
 
     public static void main(String[] args) {
 //        appium --allow-insecure chromedriver_autodownload
+        BrowserEmulatorTest test = new BrowserEmulatorTest();
+        test.getAppiumServerCustom().start();
         DesiredCapabilities caps = new DesiredCapabilities();
         caps.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
         caps.setCapability(MobileCapabilityType.DEVICE_NAME, "pixel_5");
         caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
-        caps.setCapability(MobileCapabilityType.UDID, "emulator-5554");
-        caps.setCapability("appPackage", "com.android.chrome");
-        caps.setCapability("appActivity", "com.google.android.apps.chrome.Main");
-//        caps.setCapability("adbExecTimeout", 600000);
+        caps.setCapability(MobileCapabilityType.UDID, "provide_udid");
+        caps.setCapability("browserName", "chrome");
         caps.setCapability("autoGrantPermissions",true);
 
         URL url = null;
@@ -52,6 +53,7 @@ public class BrowserEmulatorTest {
         System.out.println(((AndroidDriver) driver).getContext());
         driver.get("https://tesla.com/");
         System.out.println("driver.getTitle() "+driver.getTitle());
+        test.getAppiumServerCustom().close();
 
     }
 }
